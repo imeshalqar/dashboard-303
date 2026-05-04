@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/Meshal/Downloads/dashboard_303.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>داش بورد منطقة 303 — عرفة</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0f172a;--bg2:#1e293b;--bg3:#0f172a;
+  --border:#334155;--border2:#1e293b;
+  --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+  --red:#ef4444;--blue:#3b82f6;--amber:#f59e0b;--green:#10b981;
+  --cyan:#38bdf8;--orange:#f97316;--purple:#8b5cf6;--pink:#ec4899;--indigo:#6366f1;--teal:#06b6d4;
+}
+body{background:var(--bg);color:var(--text);font-family:'Noto Kufi Arabic','Segoe UI',Tahoma,sans-serif;max-width:480px;margin:0 auto;min-height:100vh}
+/* HEADER */
+.header{background:linear-gradient(135deg,#1e3a5f,#0f172a);padding:16px;border-bottom:1px solid #1e3a5f;position:sticky;top:0;z-index:100}
+.header-row{display:flex;align-items:center;justify-content:space-between}
+.header h1{font-size:17px;font-weight:800;color:#f8fafc}
+.header p{font-size:11px;color:var(--text3);margin-top:2px}
+.badge-live{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px}
+/* NAV */
+.nav{display:flex;background:var(--bg);border-bottom:1px solid var(--border2);overflow-x:auto;position:sticky;top:72px;z-index:99;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav button{flex:0 0 auto;padding:10px 14px;font-size:12px;color:var(--text3);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;font-family:inherit;font-weight:400;transition:all .2s}
+.nav button.active{color:var(--cyan);border-bottom-color:var(--cyan);font-weight:700}
+/* CONTENT */
+.content{padding:14px;padding-bottom:80px}
+/* CARDS */
+.card{background:var(--bg2);border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid var(--border)}
+.section-title{font-size:13px;font-weight:700;color:#cbd5e1;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.kpi-card{border-radius:14px;padding:12px}
+.kpi-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;font-size:18px}
+.kpi-val{font-size:26px;font-weight:900;color:#f8fafc;line-height:1}
+.kpi-label{font-size:11px;color:var(--text2);margin-top:3px}
+.kpi-sub{font-size:10px;color:var(--text3);margin-top:2px}
+/* PILLS */
+.pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px}
+/* TABS */
+.tab{display:none}.tab.active{display:block}
+/* PROGRESS BAR */
+.prog-wrap{background:#0f172a;border-radius:4px;height:7px;overflow:hidden;margin-top:4px}
+.prog-bar{height:100%;border-radius:4px;transition:width .5s}
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:12px}
+.search-wrap input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:10px 38px 10px 12px;color:var(--text);font-size:13px;outline:none;font-family:inherit;direction:rtl}
+.search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:16px}
+/* FILTERS */
+.filter-wrap{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.filter-wrap::-webkit-scrollbar{display:none}
+.filter-btn{flex:0 0 auto;padding:5px 12px;border-radius:20px;font-size:11px;background:var(--bg2);color:var(--text3);border:1px solid var(--border);cursor:pointer;font-family:inherit;white-space:nowrap}
+.filter-btn.active{background:#1d4ed8;color:#fff;border-color:var(--blue);font-weight:700}
+/* PERSON CARD */
+.person-card{background:var(--bg2);border-radius:12px;padding:11px;margin-bottom:9px;border:1px solid var(--border)}
+.person-name{font-size:13px;font-weight:700;color:var(--text)}
+.person-meta{display:flex;gap:5px;flex-wrap:wrap;margin:5px 0}
+.tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
+.person-phone{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--cyan)}
+/* MAP */
+.map-legend{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.map-legend button{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);cursor:pointer;font-family:inherit;font-size:11px;color:var(--text3)}
+.map-legend button.active{font-weight:700}
+/* GROUPS */
+.group-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.group-card{border-radius:14px;padding:12px 8px;text-align:center;cursor:pointer;border:1px solid var(--border);background:var(--bg2);transition:all .2s}
+.spec-btn{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;background:#0f172a;color:var(--text3);border:1px solid var(--border2);cursor:pointer;font-family:inherit}
+.spec-btn.active{font-weight:700}
+.spec-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+/* CENTERS */
+.center-stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:10px}
+.stat-box{background:#0f172a;border-radius:9px;padding:7px 4px;text-align:center}
+.stat-num{font-size:16px;font-weight:900}
+.stat-lbl{font-size:9px;color:var(--text3)}
+/* SVG MAP */
+.map-container{background:#0f172a;border-radius:16px;overflow:hidden;border:1px solid #1e3a5f;position:relative}
+/* SUMMARY ROW */
+.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7px;margin-bottom:14px}
+.summary-box{border-radius:12px;padding:10px 6px;text-align:center}
+.summary-num{font-size:20px;font-weight:900}
+.summary-lbl{font-size:10px;color:var(--text3)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-row">
+    <div>
+      <h1>🏢 منطقة 303 — عرفة</h1>
+      <p>موسم حج 1447هـ</p>
+    </div>
+    <span class="badge-live">مباشر</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="active" onclick="showTab(&#39;home&#39;,this)">الرئيسية</button>
+  <button onclick="showTab(&#39;stats&#39;,this)">الإحصائيات</button>
+  <button onclick="showTab(&#39;groups&#39;,this)">المجموعات</button>
+  <button onclick="showTab(&#39;personnel&#39;,this)">الأفراد</button>
+  <button onclick="showTab(&#39;centers&#39;,this)">المراكز</button>
+  <button onclick="showTab(&#39;map&#39;,this)">الخريطة</button>
+</div>
+
+<div class="content">
+
+<!-- ===== HOME ===== -->
+<div id="tab-home" class="tab active">
+  <div class="kpi-grid">
+    <div class="kpi-card" style="background:linear-gradient(135deg,#38bdf822,#1e293b);border:1px solid #38bdf844">
+      <div class="kpi-icon" style="background:#38bdf833;color:var(--cyan)">👥</div>
+      <div class="kpi-val">73</div>
+      <div class="kpi-label">إجمالي الأفراد</div>
+      <div class="kpi-sub">منطقة 303</div>
+    </div>
+    <div class="kpi-card" style="background:linear-gradient(135deg,#ef444422,#1e293b);border:1px solid #ef444444">
+      <div class="kpi-icon" style="background:#ef444433;color:var(--red)">🔥</div>
+      <div class="kpi-val" id="kpi-fire">50</div>
+      <div class="kpi-label">إطفاء وإنقاذ</div>
+      <div class="kpi-sub" id="kpi-fire-pct">68% من الإجمالي</div>
+    </div>
+    <div class="kpi-card" style="background:linear-gradient(135deg,#3b82f622,#1e293b);border:1px solid #3b82f644">
+      <div class="kpi-icon" style="background:#3b82f633;color:var(--blue)">🛡️</div>
+      <div class="kpi-val" id="kpi-safety">17</div>
+      <div class="kpi-label">مفتشو السلامة</div>
+      <div class="kpi-sub" id="kpi-safety-pct">23% من الإجمالي</div>
+    </div>
+    <div class="kpi-card" style="background:linear-gradient(135deg,#10b98122,#1e293b);border:1px solid #10b98144">
+      <div class="kpi-icon" style="background:#10b98133;color:var(--green)">💉</div>
+      <div class="kpi-val">100%</div>
+      <div class="kpi-label">نسبة التطعيم</div>
+      <div class="kpi-sub">73 من 73 ✅</div>
+    </div>
+  </div>
+  <div class="kpi-card" style="background:linear-gradient(135deg,#f59e0b22,#1e293b);border:1px solid #f59e0b44;margin-bottom:14px;border-radius:14px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="kpi-icon" style="background:#f59e0b33;color:var(--amber)">🚒</div>
+      <div>
+        <div class="kpi-val" id="kpi-vehicles">3</div>
+        <div class="kpi-label">قادة ومشغلو آليات</div>
+        <div class="kpi-sub" id="kpi-vehicles-pct">4% من الإجمالي</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">📌 توزيع المجموعات</div>
+    <div id="groups-bars">
+    <div style="margin-bottom:9px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:12px;color:#cbd5e1">المجموعة الثالثة</span>
+        <span style="font-size:12px;font-weight:700;color:#1d4ed8">42 فرد</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:58%;background:#1d4ed8"></div></div>
+    </div>
+    <div style="margin-bottom:9px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:12px;color:#cbd5e1">المجموعة الأولى</span>
+        <span style="font-size:12px;font-weight:700;color:#dc2626">25 فرد</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:34%;background:#dc2626"></div></div>
+    </div>
+    <div style="margin-bottom:9px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:12px;color:#cbd5e1">المجموعة الثانية</span>
+        <span style="font-size:12px;font-weight:700;color:#059669">6 فرد</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:8%;background:#059669"></div></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">🏗️ حالة التواصل بالمراكز</div>
+    <div id="centers-contact"><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">303</div>
+        <div style="font-size:10px;color:#64748b">17 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 302</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 303</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 304</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 305</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 309</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 312</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div><div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">إشراف 313</div>
+        <div style="font-size:10px;color:#64748b">8 أفراد</div>
+      </div>
+      <span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<div id="tab-stats" class="tab">
+  <div class="card">
+    <div class="section-title">⚙️ التوزيع حسب التخصص</div>
+    <div id="spec-chart" style="margin-bottom:10px"></div>
+    <div id="spec-bars">
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#ef4444;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:66%;background:#ef4444"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#ef4444;width:22px;text-align:left">48</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#3b82f6;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:19%;background:#3b82f6"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#3b82f6;width:22px;text-align:left">14</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#6366f1;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة دراجة</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:4%;background:#6366f1"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#6366f1;width:22px;text-align:left">3</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">قائد ومشغل آليات</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:4%;background:#f59e0b"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#f59e0b;width:22px;text-align:left">3</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#f97316;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ دراجة</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:3%;background:#f97316"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#f97316;width:22px;text-align:left">2</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#8b5cf6;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">رئيس مركز</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:1%;background:#8b5cf6"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#8b5cf6;width:22px;text-align:left">1</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#ec4899;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">مساعد رئيس مركز</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:1%;background:#ec4899"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#ec4899;width:22px;text-align:left">1</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:#10b981;flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">تموين وخدمات</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:1%;background:#10b981"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#10b981;width:22px;text-align:left">1</span>
+    </div></div>
+  </div>
+  <div class="card">
+    <div class="section-title">📋 التوزيع حسب الرتبة</div>
+    <div id="rank-bars">
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">جندي أول</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:100%;background:#ef4444"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#ef4444;width:20px;text-align:left">22</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">عريف</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:100%;background:#f97316"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#f97316;width:20px;text-align:left">22</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">وكيل رقيب</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:55%;background:#f59e0b"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#f59e0b;width:20px;text-align:left">12</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">رقيب أول</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:32%;background:#10b981"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#10b981;width:20px;text-align:left">7</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">رقيب</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:27%;background:#3b82f6"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#3b82f6;width:20px;text-align:left">6</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">نقيب</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:5%;background:#6366f1"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#6366f1;width:20px;text-align:left">1</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">ملازم</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:5%;background:#8b5cf6"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#8b5cf6;width:20px;text-align:left">1</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">رئيس رقباء</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:5%;background:#ec4899"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#ec4899;width:20px;text-align:left">1</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">جندي</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:5%;background:#64748b"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#64748b;width:20px;text-align:left">1</span>
+    </div></div>
+  </div>
+  <div class="card">
+    <div class="section-title">🏗️ الأفراد حسب المركز</div>
+    <canvas id="center-chart" height="400" width="0"></canvas>
+  </div>
+</div>
+
+<!-- ===== GROUPS ===== -->
+<div id="tab-groups" class="tab">
+  <div class="group-grid" id="group-cards"><div class="group-card" onclick="selectGroup(&#39;الأولى&#39;)" style="background:#dc262622;border-color:#dc2626">
+      <div style="font-size:20px">1️⃣</div>
+      <div style="font-size:12px;font-weight:800;color:#dc2626;margin-top:4px">م. الأولى</div>
+      <div style="font-size:18px;font-weight:900;color:#dc2626">25</div>
+      <div style="font-size:9px;color:#64748b">فرد</div>
+    </div><div class="group-card" onclick="selectGroup(&#39;الثانية&#39;)" style="">
+      <div style="font-size:20px">2️⃣</div>
+      <div style="font-size:12px;font-weight:800;color:#94a3b8;margin-top:4px">م. الثانية</div>
+      <div style="font-size:18px;font-weight:900;color:#f1f5f9">6</div>
+      <div style="font-size:9px;color:#64748b">فرد</div>
+    </div><div class="group-card" onclick="selectGroup(&#39;الثالثة&#39;)" style="">
+      <div style="font-size:20px">3️⃣</div>
+      <div style="font-size:12px;font-weight:800;color:#94a3b8;margin-top:4px">م. الثالثة</div>
+      <div style="font-size:18px;font-weight:900;color:#f1f5f9">42</div>
+      <div style="font-size:9px;color:#64748b">فرد</div>
+    </div></div>
+  <div class="card" id="spec-filter-card">
+    <div class="section-title">🔧 <span id="spec-filter-title">تخصصات المجموعة الأولى</span></div>
+    <div class="filter-wrap" id="spec-filter-btns" style="flex-wrap:wrap"><button class="spec-btn active" onclick="selectSpec(&#39;الكل&#39;)" style="background:#64748b33;color:#64748b;border-color:#64748b">
+      
+      الكل <span style="font-weight:900;color:#64748b">25</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;رئيس مركز&#39;)" style="">
+      <div class="spec-dot" style="background:#8b5cf6"></div>
+      رئيس مركز <span style="font-weight:900;color:#8b5cf6">1</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;مساعد رئيس مركز&#39;)" style="">
+      <div class="spec-dot" style="background:#ec4899"></div>
+      مساعد رئيس مركز <span style="font-weight:900;color:#ec4899">1</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;إطفاء وإنقاذ دراجة&#39;)" style="">
+      <div class="spec-dot" style="background:#f97316"></div>
+      إطفاء وإنقاذ دراجة <span style="font-weight:900;color:#f97316">2</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;مفتش سلامة دراجة&#39;)" style="">
+      <div class="spec-dot" style="background:#6366f1"></div>
+      مفتش سلامة دراجة <span style="font-weight:900;color:#6366f1">3</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;قائد ومشغل آليات&#39;)" style="">
+      <div class="spec-dot" style="background:#f59e0b"></div>
+      قائد ومشغل آليات <span style="font-weight:900;color:#f59e0b">3</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;تموين وخدمات&#39;)" style="">
+      <div class="spec-dot" style="background:#10b981"></div>
+      تموين وخدمات <span style="font-weight:900;color:#10b981">1</span>
+    </button><button class="spec-btn " onclick="selectSpec(&#39;مفتش سلامة&#39;)" style="">
+      <div class="spec-dot" style="background:#3b82f6"></div>
+      مفتش سلامة <span style="font-weight:900;color:#3b82f6">14</span>
+    </button></div>
+  </div>
+  <div id="spec-stat-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+    <div style="background:#8b5cf611;border:1px solid #8b5cf633;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#8b5cf6"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">رئيس مركز</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#8b5cf6">1</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:4%;background:#8b5cf6"></div></div>
+    </div>
+    <div style="background:#ec489911;border:1px solid #ec489933;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#ec4899"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">مساعد رئيس مركز</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#ec4899">1</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:4%;background:#ec4899"></div></div>
+    </div>
+    <div style="background:#f9731611;border:1px solid #f9731633;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#f97316"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">إطفاء وإنقاذ دراجة</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#f97316">2</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:8%;background:#f97316"></div></div>
+    </div>
+    <div style="background:#6366f111;border:1px solid #6366f133;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#6366f1"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">مفتش سلامة دراجة</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#6366f1">3</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:12%;background:#6366f1"></div></div>
+    </div>
+    <div style="background:#f59e0b11;border:1px solid #f59e0b33;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#f59e0b"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">قائد ومشغل آليات</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#f59e0b">3</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:12%;background:#f59e0b"></div></div>
+    </div>
+    <div style="background:#10b98111;border:1px solid #10b98133;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#10b981"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">تموين وخدمات</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#10b981">1</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:4%;background:#10b981"></div></div>
+    </div>
+    <div style="background:#3b82f611;border:1px solid #3b82f633;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:#3b82f6"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">مفتش سلامة</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#3b82f6">14</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:56%;background:#3b82f6"></div></div>
+    </div></div>
+  <div id="group-count" style="font-size:11px;color:var(--text3);margin-bottom:8px">25 فرد</div>
+  <div id="group-list"><div class="person-card" style="border-right:3px solid #8b5cf6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">1. محمد عطية الله السلمي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رئيس مركز</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">نقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0568754327 <span style="color:#334155;font-size:10px">#4623</span></div>
+    </div><div class="person-card" style="border-right:3px solid #ec4899">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">2. مشعل خالد القرني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#ec489922;color:#ec4899;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مساعد رئيس مركز</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">ملازم</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0565718473 <span style="color:#334155;font-size:10px">#5466</span></div>
+    </div><div class="person-card" style="border-right:3px solid #f97316">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">3. ناصر مبارك الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#f9731622;color:#f97316;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ دراجة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رئيس رقباء</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0541118210 <span style="color:#334155;font-size:10px">#29145</span></div>
+    </div><div class="person-card" style="border-right:3px solid #f97316">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">5. مسفر محمد الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#f9731622;color:#f97316;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ دراجة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0559585007 <span style="color:#334155;font-size:10px">#37922</span></div>
+    </div><div class="person-card" style="border-right:3px solid #6366f1">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">6. نايف فلاح الحارثي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0547005446 <span style="color:#334155;font-size:10px">#40314</span></div>
+    </div><div class="person-card" style="border-right:3px solid #6366f1">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">7. هاجد فلاح الحارثي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0552004841 <span style="color:#334155;font-size:10px">#44970</span></div>
+    </div><div class="person-card" style="border-right:3px solid #6366f1">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">8. صقر سالم آل كزمان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0552292557 <span style="color:#334155;font-size:10px">#45548</span></div>
+    </div><div class="person-card" style="border-right:3px solid #f59e0b">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">11. بدر عودة العطوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0564518444 <span style="color:#334155;font-size:10px">#54277</span></div>
+    </div><div class="person-card" style="border-right:3px solid #f59e0b">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">12. عبدالله محمد العطوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0533361157 <span style="color:#334155;font-size:10px">#54411</span></div>
+    </div><div class="person-card" style="border-right:3px solid #10b981">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">13. مسفر جبار الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#10b98122;color:#10b981;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">تموين وخدمات</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0500029496 <span style="color:#334155;font-size:10px">#58728</span></div>
+    </div><div class="person-card" style="border-right:3px solid #f59e0b">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">16. فارس سليم الحويطي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+      </div>
+      <div class="person-phone">📞 0565700593 <span style="color:#334155;font-size:10px">#67657</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">21. عبدالله عودة العنزي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+      </div>
+      <div class="person-phone">📞 0590803494 <span style="color:#334155;font-size:10px">#64277</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">23. صالح نغيمش العنزي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+      </div>
+      <div class="person-phone">📞 0548888421 <span style="color:#334155;font-size:10px">#39538</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">29. فيصل حسن الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+      </div>
+      <div class="person-phone">📞 0503094737 <span style="color:#334155;font-size:10px">#70599</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">33. وليد عوض الرشيدي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+      </div>
+      <div class="person-phone">📞 0507944303 <span style="color:#334155;font-size:10px">#72979</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">36. عبدالله حسن مطيلق</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+      </div>
+      <div class="person-phone">📞 0551190136 <span style="color:#334155;font-size:10px">#63247</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">41. محمد حجي الموسى</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+      </div>
+      <div class="person-phone">📞 0577313130 <span style="color:#334155;font-size:10px">#71342</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">45. أحمد علي التمار</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+      </div>
+      <div class="person-phone">📞 0544280584 <span style="color:#334155;font-size:10px">#73011</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">46. محمد لافي العازمي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+      </div>
+      <div class="person-phone">📞 0550652717 <span style="color:#334155;font-size:10px">#56531</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">52. أحمد محمد البن أحمد</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+      </div>
+      <div class="person-phone">📞 0576858782 <span style="color:#334155;font-size:10px">#58415</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">55. طلال منصور العتيبي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+      </div>
+      <div class="person-phone">📞 0537776869 <span style="color:#334155;font-size:10px">#55126</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">61. خالد حماد الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+      </div>
+      <div class="person-phone">📞 0504448494 <span style="color:#334155;font-size:10px">#74066</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">63. عبدالله صالح المري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+      </div>
+      <div class="person-phone">📞 0553628128 <span style="color:#334155;font-size:10px">#58730</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">68. حمد عطالله الجميلي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+      </div>
+      <div class="person-phone">📞 0550770564 <span style="color:#334155;font-size:10px">#72987</span></div>
+    </div><div class="person-card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">70. مرتضى محمد عيسى آل أمان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+      </div>
+      <div class="person-phone">📞 0544993171 <span style="color:#334155;font-size:10px">#72348</span></div>
+    </div></div>
+</div>
+
+<!-- ===== PERSONNEL ===== -->
+<div id="tab-personnel" class="tab">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="ابحث باسم، رتبة، أو تخصص..." oninput="renderPersonnel()">
+  </div>
+  <div class="filter-wrap" id="center-filters"><button class="filter-btn active" onclick="setCenterFilter(&#39;الكل&#39;,this)">الكل</button><button class="filter-btn" onclick="setCenterFilter(&#39;303&#39;,this)">303</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 312&#39;,this)">إشراف 312</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 304&#39;,this)">إشراف 304</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 309&#39;,this)">إشراف 309</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 302&#39;,this)">إشراف 302</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 305&#39;,this)">إشراف 305</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 303&#39;,this)">إشراف 303</button><button class="filter-btn" onclick="setCenterFilter(&#39;إشراف 313&#39;,this)">إشراف 313</button></div>
+  <div id="personnel-count" style="font-size:11px;color:var(--text3);margin-bottom:9px">73 فرد</div>
+  <div id="personnel-list"><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">1. محمد عطية الله السلمي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">نقيب</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رئيس مركز</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0568754327 <span style="color:#334155;font-size:10px">#4623</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">2. مشعل خالد القرني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">ملازم</span>
+        <span class="tag" style="background:#ec489922;color:#ec4899;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مساعد رئيس مركز</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0565718473 <span style="color:#334155;font-size:10px">#5466</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">3. ناصر مبارك الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رئيس رقباء</span>
+        <span class="tag" style="background:#f9731622;color:#f97316;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ دراجة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0541118210 <span style="color:#334155;font-size:10px">#29145</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">4. عمر صالح البلوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0566868989 <span style="color:#334155;font-size:10px">#35701</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">5. مسفر محمد الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#f9731622;color:#f97316;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ دراجة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0559585007 <span style="color:#334155;font-size:10px">#37922</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">6. نايف فلاح الحارثي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0547005446 <span style="color:#334155;font-size:10px">#40314</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">7. هاجد فلاح الحارثي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0552004841 <span style="color:#334155;font-size:10px">#44970</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">8. صقر سالم آل كزمان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#6366f122;color:#6366f1;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة دراجة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0552292557 <span style="color:#334155;font-size:10px">#45548</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">9. محمد مكي العطية</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0559914307 <span style="color:#334155;font-size:10px">#46063</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">10. مشعل عيادة الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0534000459 <span style="color:#334155;font-size:10px">#70301</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">11. بدر عودة العطوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0564518444 <span style="color:#334155;font-size:10px">#54277</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">12. عبدالله محمد العطوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0533361157 <span style="color:#334155;font-size:10px">#54411</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">13. مسفر جبار الشهراني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#10b98122;color:#10b981;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">تموين وخدمات</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0500029496 <span style="color:#334155;font-size:10px">#58728</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">14. عبدالله مطلق العطوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0532220314 <span style="color:#334155;font-size:10px">#48838</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">15. بدر تركي السبيعي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0554668027 <span style="color:#334155;font-size:10px">#62733</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">16. فارس سليم الحويطي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#f59e0b22;color:#f59e0b;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">قائد ومشغل آليات</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0565700593 <span style="color:#334155;font-size:10px">#67657</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">17. محمد علي المهذب</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثانية</span>
+      </div>
+      <div class="person-phone">📞 0549819306 <span style="color:#334155;font-size:10px">#72054</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">18. عبدالمحسن إبراهيم الوعيد</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0546760095 <span style="color:#334155;font-size:10px">#39573</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">19. حسين عباس السلمان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0553361584 <span style="color:#334155;font-size:10px">#56868</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">20. إبراهيم محمد الرشيدي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0535411128 <span style="color:#334155;font-size:10px">#64147</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">21. عبدالله عودة العنزي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0590803494 <span style="color:#334155;font-size:10px">#64277</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">22. محمد عايض الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0503808634 <span style="color:#334155;font-size:10px">#31732</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">23. صالح نغيمش العنزي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0548888421 <span style="color:#334155;font-size:10px">#39538</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">24. محمد سفيان المغيرة</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0536340916 <span style="color:#334155;font-size:10px">#59345</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">25. فيصل حمد المري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 312</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0552812793 <span style="color:#334155;font-size:10px">#64195</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">26. سالم عبدالله الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0580075007 <span style="color:#334155;font-size:10px">#27328</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">27. تركي محمد السهلي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0556022276 <span style="color:#334155;font-size:10px">#60676</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">28. شعلان مرزوق الظفيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0555837663 <span style="color:#334155;font-size:10px">#64200</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">29. فيصل حسن الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0503094737 <span style="color:#334155;font-size:10px">#70599</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">30. عبدالوهاب أمير الغزال</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0566224490 <span style="color:#334155;font-size:10px">#42979</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">31. فيصل مطلق المطيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0508507989 <span style="color:#334155;font-size:10px">#64116</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">32. أحمد عايد الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0508043448 <span style="color:#334155;font-size:10px">#60513</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">33. وليد عوض الرشيدي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 304</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0507944303 <span style="color:#334155;font-size:10px">#72979</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">34. حسين بودويحس</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0544740005 <span style="color:#334155;font-size:10px">#34439</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">35. صالح مسعد العازمي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0551501624 <span style="color:#334155;font-size:10px">#61580</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">36. عبدالله حسن مطيلق</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0551190136 <span style="color:#334155;font-size:10px">#63247</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">37. مشعل لائق البلوي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0532154134 <span style="color:#334155;font-size:10px">#64255</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">38. عبدالمجيد ناصر السلوم</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0509350902 <span style="color:#334155;font-size:10px">#46895</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">39. نصار عامر الظفيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0532552422 <span style="color:#334155;font-size:10px">#63252</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">40. عبدالله مطلق المطيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0537461055 <span style="color:#334155;font-size:10px">#64264</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">41. محمد حجي الموسى</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 309</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0577313130 <span style="color:#334155;font-size:10px">#71342</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">42. يوسف أحمد الشايب</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0503921366 <span style="color:#334155;font-size:10px">#41447</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">43. مشاري راشد آل خليفة</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0548294635 <span style="color:#334155;font-size:10px">#59440</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">44. أحمد علي السعران</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0551458098 <span style="color:#334155;font-size:10px">#66621</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">45. أحمد علي التمار</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0544280584 <span style="color:#334155;font-size:10px">#73011</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">46. محمد لافي العازمي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0550652717 <span style="color:#334155;font-size:10px">#56531</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">47. حمد ذيب الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0535769376 <span style="color:#334155;font-size:10px">#61749</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">48. منصور محمد الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0550821422 <span style="color:#334155;font-size:10px">#58145</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">49. عبدالله حمد الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 302</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0505222810 <span style="color:#334155;font-size:10px">#58748</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">50. ناصر حسن البري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0500614614 <span style="color:#334155;font-size:10px">#55873</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">51. عبدالله حسين السرور</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0557040971 <span style="color:#334155;font-size:10px">#55508</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">52. أحمد محمد البن أحمد</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0576858782 <span style="color:#334155;font-size:10px">#58415</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">53. عبدالله خميس الهاجري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0509975589 <span style="color:#334155;font-size:10px">#61654</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">54. أحمد دغيمان المطيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0560697392 <span style="color:#334155;font-size:10px">#40937</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">55. طلال منصور العتيبي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0537776869 <span style="color:#334155;font-size:10px">#55126</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">56. مبارك هجاج الظفيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0500708032 <span style="color:#334155;font-size:10px">#43664</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">57. عبدالعزيز خلف الجميلي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 305</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0533495925 <span style="color:#334155;font-size:10px">#68729</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">58. سلمان أحمد جمعان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">رقيب أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0503825701 <span style="color:#334155;font-size:10px">#34376</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">59. نايف محمد آل تحيفة</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0551155130 <span style="color:#334155;font-size:10px">#45545</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">60. خالد رحيل الرويلي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0532189546 <span style="color:#334155;font-size:10px">#61414</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">61. خالد حماد الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0504448494 <span style="color:#334155;font-size:10px">#74066</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">62. عبدالله محمد الشهري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0507920837 <span style="color:#334155;font-size:10px">#45156</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">63. عبدالله صالح المري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0553628128 <span style="color:#334155;font-size:10px">#58730</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">64. سعود عيد الحربي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0536650811 <span style="color:#334155;font-size:10px">#60488</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">65. فهد عبيد الشمري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 303</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0533095484 <span style="color:#334155;font-size:10px">#69004</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">66. مشيعل سعيد الحارثي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0507002276 <span style="color:#334155;font-size:10px">#43692</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">67. مشعل مطني الظفيري</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0559592777 <span style="color:#334155;font-size:10px">#64233</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">68. حمد عطالله الجميلي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0550770564 <span style="color:#334155;font-size:10px">#72987</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">69. زايد فارس آل وقيان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0541850271 <span style="color:#334155;font-size:10px">#73052</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">70. مرتضى محمد عيسى آل أمان</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">وكيل رقيب</span>
+        <span class="tag" style="background:#3b82f622;color:#3b82f6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">مفتش سلامة</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الأولى</span>
+      </div>
+      <div class="person-phone">📞 0544993171 <span style="color:#334155;font-size:10px">#72348</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">71. سلطان محمد البذالي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0555952970 <span style="color:#334155;font-size:10px">#60443</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">72. عبدالرحمن عوض القحطاني</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">عريف</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0536639300 <span style="color:#334155;font-size:10px">#59282</span></div>
+    </div><div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">73. صادق عيسى الحنابي</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="background:#38bdf822;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">جندي أول</span>
+        <span class="tag" style="background:#ef444422;color:#ef4444;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إطفاء وإنقاذ</span>
+        <span class="tag" style="background:#8b5cf622;color:#8b5cf6;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">إشراف 313</span>
+        <span class="tag" style="background:#47556922;color:#94a3b8;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600">م. الثالثة</span>
+      </div>
+      <div class="person-phone">📞 0503667105 <span style="color:#334155;font-size:10px">#71429</span></div>
+    </div></div>
+</div>
+
+<!-- ===== CENTERS ===== -->
+<div id="tab-centers" class="tab">
+  <div class="summary-grid" id="centers-summary">
+    <div class="summary-box" style="background:#38bdf811;border:1px solid #38bdf833">
+      <div class="summary-num" style="color:#38bdf8">73</div>
+      <div class="summary-lbl">الإجمالي</div>
+    </div>
+    <div class="summary-box" style="background:#ef444411;border:1px solid #ef444433">
+      <div class="summary-num" style="color:#ef4444">50</div>
+      <div class="summary-lbl">إطفاء</div>
+    </div>
+    <div class="summary-box" style="background:#3b82f611;border:1px solid #3b82f633">
+      <div class="summary-num" style="color:#3b82f6">17</div>
+      <div class="summary-lbl">سلامة</div>
+    </div>
+    <div class="summary-box" style="background:#f59e0b11;border:1px solid #f59e0b33">
+      <div class="summary-num" style="color:#f59e0b">3</div>
+      <div class="summary-lbl">آليات</div>
+    </div></div>
+  <div id="centers-list">
+    <div class="card" style="border-right:3px solid #ef4444">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">303</span>
+        <span style="font-size:11px;color:#64748b">17 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">17</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">8</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">3</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">3</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:35%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#6366f1"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة دراجة</span>
+            <span style="font-size:11px;font-weight:700;color:#6366f1">3</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:18%;background:#6366f1;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#f59e0b"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">قائد ومشغل آليات</span>
+            <span style="font-size:11px;font-weight:700;color:#f59e0b">3</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:18%;background:#f59e0b;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#f97316"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ دراجة</span>
+            <span style="font-size:11px;font-weight:700;color:#f97316">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:12%;background:#f97316;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#8b5cf6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">رئيس مركز</span>
+            <span style="font-size:11px;font-weight:700;color:#8b5cf6">1</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:6%;background:#8b5cf6;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ec4899"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مساعد رئيس مركز</span>
+            <span style="font-size:11px;font-weight:700;color:#ec4899">1</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:6%;background:#ec4899;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#10b981"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">تموين وخدمات</span>
+            <span style="font-size:11px;font-weight:700;color:#10b981">1</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:6%;background:#10b981;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">17/17 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #3b82f6">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 302</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #8b5cf6">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 303</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #f59e0b">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 304</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #10b981">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 305</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #f97316">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 309</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #06b6d4">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 312</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div>
+    <div class="card" style="border-right:3px solid #ec4899">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">إشراف 313</span>
+        <span style="font-size:11px;color:#64748b">8 فرد</span>
+      </div>
+      <div class="center-stats">
+        <div class="stat-box"><div class="stat-num" style="color:#38bdf8">8</div><div class="stat-lbl">إجمالي</div></div><div class="stat-box"><div class="stat-num" style="color:#ef4444">6</div><div class="stat-lbl">إطفاء</div></div><div class="stat-box"><div class="stat-num" style="color:#3b82f6">2</div><div class="stat-lbl">سلامة</div></div><div class="stat-box"><div class="stat-num" style="color:#f59e0b">0</div><div class="stat-lbl">آليات</div></div>
+      </div>
+      <div style="margin-bottom:10px">
+        
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#ef4444"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">إطفاء وإنقاذ</span>
+            <span style="font-size:11px;font-weight:700;color:#ef4444">6</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:75%;background:#ef4444;border-radius:3px"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:#3b82f6"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">مفتش سلامة</span>
+            <span style="font-size:11px;font-weight:700;color:#3b82f6">2</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:25%;background:#3b82f6;border-radius:3px"></div>
+            </div>
+          </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:#10b981">8/8 (100%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#10b981"></div></div>
+      
+    </div></div>
+</div>
+
+<!-- ===== MAP ===== -->
+<div id="tab-map" class="tab">
+  <p style="font-size:12px;color:var(--text3);margin-bottom:10px">اضغط على نقطة الإشراف لعرض تفاصيلها</p>
+  <div class="map-container">
+    <svg id="map-svg" width="100%" viewBox="0 0 340 300" style="display:block">
+    <rect width="340" height="300" fill="#1a2744"></rect>
+    <!-- blocks -->
+    <rect x="10" y="10" width="80" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="100" y="15" width="65" height="50" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="175" y="10" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="255" y="12" width="75" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="10" y="85" width="75" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="95" y="80" width="65" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="170" y="85" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="250" y="82" width="80" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="10" y="160" width="75" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="95" y="155" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="175" y="160" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="255" y="158" width="75" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="10" y="235" width="80" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="100" y="238" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="180" y="235" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <rect x="260" y="238" width="70" height="55" rx="4" fill="#243058" opacity=".7"></rect>
+    <!-- streets horizontal -->
+    <line x1="0" y1="215.99999999999574" x2="340" y2="215.99999999999574" stroke="#f59e0b" stroke-width="5" opacity=".45"></line>
+    <line x1="0" y1="179.99999999997868" x2="340" y2="179.99999999997868" stroke="#f59e0b" stroke-width="4" opacity=".45"></line>
+    <line x1="0" y1="144.0000000000682" x2="340" y2="144.0000000000682" stroke="#f59e0b" stroke-width="5" opacity=".45"></line>
+    <line x1="0" y1="108.00000000005116" x2="340" y2="108.00000000005116" stroke="#f59e0b" stroke-width="4" opacity=".45"></line>
+    <!-- streets vertical -->
+    <line x1="67.99999999985505" y1="0" x2="67.99999999985505" y2="300" stroke="#f59e0b" stroke-width="4" opacity=".45"></line>
+    <line x1="118.99999999986711" y1="0" x2="118.99999999986711" y2="300" stroke="#f59e0b" stroke-width="5" opacity=".45"></line>
+    <line x1="169.9999999998792" y1="0" x2="169.9999999998792" y2="300" stroke="#f59e0b" stroke-width="4" opacity=".45"></line>
+    <line x1="220.9999999998913" y1="0" x2="220.9999999998913" y2="300" stroke="#f59e0b" stroke-width="5" opacity=".45"></line>
+    <!-- compass -->
+    <circle cx="320" cy="18" r="12" fill="#0f172a" stroke="#334155" stroke-width="1"></circle>
+    <text x="320" y="22" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="sans-serif">ش</text>
+    <!-- scale -->
+    <line x1="10" y1="290" x2="55" y2="290" stroke="#64748b" stroke-width="1.5"></line>
+    <line x1="10" y1="287" x2="10" y2="293" stroke="#64748b" stroke-width="1.5"></line>
+    <line x1="55" y1="287" x2="55" y2="293" stroke="#64748b" stroke-width="1.5"></line>
+    <text x="32" y="285" text-anchor="middle" font-size="6" fill="#64748b" font-family="sans-serif">~500م</text>
+  
+      <g onclick="selectMap(&#39;303&#39;)" style="cursor:pointer">
+        
+        <circle cx="261.35799999995385" cy="136.89000000000811" r="13" fill="#ef4444" opacity=".9"></circle>
+        <circle cx="261.35799999995385" cy="136.89000000000811" r="9" fill="#0f172a"></circle>
+        <text x="261.35799999995385" y="140.89000000000811" text-anchor="middle" font-size="7" fill="#ef4444" font-weight="bold" font-family="monospace">303</text>
+        <text x="261.35799999995385" y="118.89000000000811" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">17 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 302&#39;)" style="cursor:pointer">
+        
+        <circle cx="146.60799999998704" cy="204.3900000000001" r="13" fill="#3b82f6" opacity=".9"></circle>
+        <circle cx="146.60799999998704" cy="204.3900000000001" r="9" fill="#0f172a"></circle>
+        <text x="146.60799999998704" y="208.3900000000001" text-anchor="middle" font-size="7" fill="#3b82f6" font-weight="bold" font-family="monospace">302</text>
+        <text x="146.60799999998704" y="186.3900000000001" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 303&#39;)" style="cursor:pointer">
+        
+        <circle cx="193.39200000001293" cy="196.8600000000412" r="13" fill="#8b5cf6" opacity=".9"></circle>
+        <circle cx="193.39200000001293" cy="196.8600000000412" r="9" fill="#0f172a"></circle>
+        <text x="193.39200000001293" y="200.8600000000412" text-anchor="middle" font-size="7" fill="#8b5cf6" font-weight="bold" font-family="monospace">303</text>
+        <text x="193.39200000001293" y="178.8600000000412" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 304&#39;)" style="cursor:pointer">
+        
+        <circle cx="70.14200000000389" cy="136.89000000000811" r="13" fill="#f59e0b" opacity=".9"></circle>
+        <circle cx="70.14200000000389" cy="136.89000000000811" r="9" fill="#0f172a"></circle>
+        <text x="70.14200000000389" y="140.89000000000811" text-anchor="middle" font-size="7" fill="#f59e0b" font-weight="bold" font-family="monospace">304</text>
+        <text x="70.14200000000389" y="118.89000000000811" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 305&#39;)" style="cursor:pointer">
+        
+        <circle cx="193.39200000001293" cy="181.85999999997193" r="13" fill="#10b981" opacity=".9"></circle>
+        <circle cx="193.39200000001293" cy="181.85999999997193" r="9" fill="#0f172a"></circle>
+        <text x="193.39200000001293" y="185.85999999997193" text-anchor="middle" font-size="7" fill="#10b981" font-weight="bold" font-family="monospace">305</text>
+        <text x="193.39200000001293" y="163.85999999997193" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 309&#39;)" style="cursor:pointer">
+        
+        <circle cx="142.39200000000088" cy="91.89000000001343" r="13" fill="#f97316" opacity=".9"></circle>
+        <circle cx="142.39200000000088" cy="91.89000000001343" r="9" fill="#0f172a"></circle>
+        <text x="142.39200000000088" y="95.89000000001343" text-anchor="middle" font-size="7" fill="#f97316" font-weight="bold" font-family="monospace">309</text>
+        <text x="142.39200000000088" y="73.89000000001343" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 312&#39;)" style="cursor:pointer">
+        
+        <circle cx="231.60799999992668" cy="125.61000000003187" r="13" fill="#06b6d4" opacity=".9"></circle>
+        <circle cx="231.60799999992668" cy="125.61000000003187" r="9" fill="#0f172a"></circle>
+        <text x="231.60799999992668" y="129.61000000003187" text-anchor="middle" font-size="7" fill="#06b6d4" font-weight="bold" font-family="monospace">312</text>
+        <text x="231.60799999992668" y="107.61000000003187" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g>
+      <g onclick="selectMap(&#39;إشراف 313&#39;)" style="cursor:pointer">
+        
+        <circle cx="265.64200000000994" cy="114.39000000001076" r="13" fill="#ec4899" opacity=".9"></circle>
+        <circle cx="265.64200000000994" cy="114.39000000001076" r="9" fill="#0f172a"></circle>
+        <text x="265.64200000000994" y="118.39000000001076" text-anchor="middle" font-size="7" fill="#ec4899" font-weight="bold" font-family="monospace">313</text>
+        <text x="265.64200000000994" y="96.39000000001076" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">8 فرد</text>
+      </g></svg>
+    <div style="position:absolute;top:8px;right:8px;background:#0f172aaa;border-radius:8px;padding:4px 10px;font-size:11px;color:#cbd5e1">🗺️ عرفات — منطقة 303</div>
+  </div>
+  <div class="map-legend" id="map-legend">
+    <button onclick="selectMap(&#39;303&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0"></div>
+      303
+    </button>
+    <button onclick="selectMap(&#39;إشراف 302&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;flex-shrink:0"></div>
+      إشراف 302
+    </button>
+    <button onclick="selectMap(&#39;إشراف 303&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#8b5cf6;flex-shrink:0"></div>
+      إشراف 303
+    </button>
+    <button onclick="selectMap(&#39;إشراف 304&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0"></div>
+      إشراف 304
+    </button>
+    <button onclick="selectMap(&#39;إشراف 305&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0"></div>
+      إشراف 305
+    </button>
+    <button onclick="selectMap(&#39;إشراف 309&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#f97316;flex-shrink:0"></div>
+      إشراف 309
+    </button>
+    <button onclick="selectMap(&#39;إشراف 312&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#06b6d4;flex-shrink:0"></div>
+      إشراف 312
+    </button>
+    <button onclick="selectMap(&#39;إشراف 313&#39;)" style="">
+      <div style="width:8px;height:8px;border-radius:50%;background:#ec4899;flex-shrink:0"></div>
+      إشراف 313
+    </button></div>
+  <div id="map-detail">
+      <div class="card" style="text-align:center;padding:24px 14px">
+        <div style="font-size:32px;margin-bottom:8px">🗺️</div>
+        <div style="font-size:13px;color:#64748b">اضغط على أي نقطة في الخريطة<br>أو اختر إشرافاً من القائمة أعلاه</div>
+      </div></div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+// ===== DATA =====
+const personnel = [
+  {id:1,name:"محمد عطية الله السلمي",rank:"نقيب",mil:4623,spec:"رئيس مركز",center:"303",group:"الأولى",phone:"0568754327"},
+  {id:2,name:"مشعل خالد القرني",rank:"ملازم",mil:5466,spec:"مساعد رئيس مركز",center:"303",group:"الأولى",phone:"0565718473"},
+  {id:3,name:"ناصر مبارك الشهراني",rank:"رئيس رقباء",mil:29145,spec:"إطفاء وإنقاذ دراجة",center:"303",group:"الأولى",phone:"0541118210"},
+  {id:4,name:"عمر صالح البلوي",rank:"رقيب أول",mil:35701,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0566868989"},
+  {id:5,name:"مسفر محمد الشهراني",rank:"رقيب أول",mil:37922,spec:"إطفاء وإنقاذ دراجة",center:"303",group:"الأولى",phone:"0559585007"},
+  {id:6,name:"نايف فلاح الحارثي",rank:"رقيب",mil:40314,spec:"مفتش سلامة دراجة",center:"303",group:"الأولى",phone:"0547005446"},
+  {id:7,name:"هاجد فلاح الحارثي",rank:"رقيب",mil:44970,spec:"مفتش سلامة دراجة",center:"303",group:"الأولى",phone:"0552004841"},
+  {id:8,name:"صقر سالم آل كزمان",rank:"رقيب",mil:45548,spec:"مفتش سلامة دراجة",center:"303",group:"الأولى",phone:"0552292557"},
+  {id:9,name:"محمد مكي العطية",rank:"وكيل رقيب",mil:46063,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0559914307"},
+  {id:10,name:"مشعل عيادة الشمري",rank:"جندي أول",mil:70301,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0534000459"},
+  {id:11,name:"بدر عودة العطوي",rank:"وكيل رقيب",mil:54277,spec:"قائد ومشغل آليات",center:"303",group:"الأولى",phone:"0564518444"},
+  {id:12,name:"عبدالله محمد العطوي",rank:"عريف",mil:54411,spec:"قائد ومشغل آليات",center:"303",group:"الأولى",phone:"0533361157"},
+  {id:13,name:"مسفر جبار الشهراني",rank:"عريف",mil:58728,spec:"تموين وخدمات",center:"303",group:"الأولى",phone:"0500029496"},
+  {id:14,name:"عبدالله مطلق العطوي",rank:"عريف",mil:48838,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0532220314"},
+  {id:15,name:"بدر تركي السبيعي",rank:"جندي أول",mil:62733,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0554668027"},
+  {id:16,name:"فارس سليم الحويطي",rank:"جندي أول",mil:67657,spec:"قائد ومشغل آليات",center:"303",group:"الأولى",phone:"0565700593"},
+  {id:17,name:"محمد علي المهذب",rank:"جندي أول",mil:72054,spec:"إطفاء وإنقاذ",center:"303",group:"الثانية",phone:"0549819306"},
+  {id:18,name:"عبدالمحسن إبراهيم الوعيد",rank:"رقيب أول",mil:39573,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0546760095"},
+  {id:19,name:"حسين عباس السلمان",rank:"عريف",mil:56868,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0553361584"},
+  {id:20,name:"إبراهيم محمد الرشيدي",rank:"جندي أول",mil:64147,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0535411128"},
+  {id:21,name:"عبدالله عودة العنزي",rank:"جندي أول",mil:64277,spec:"مفتش سلامة",center:"إشراف 312",group:"الأولى",phone:"0590803494"},
+  {id:22,name:"محمد عايض الهاجري",rank:"رقيب أول",mil:31732,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0503808634"},
+  {id:23,name:"صالح نغيمش العنزي",rank:"رقيب",mil:39538,spec:"مفتش سلامة",center:"إشراف 312",group:"الأولى",phone:"0548888421"},
+  {id:24,name:"محمد سفيان المغيرة",rank:"عريف",mil:59345,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0536340916"},
+  {id:25,name:"فيصل حمد المري",rank:"جندي أول",mil:64195,spec:"إطفاء وإنقاذ",center:"إشراف 312",group:"الثالثة",phone:"0552812793"},
+  {id:26,name:"سالم عبدالله الهاجري",rank:"رقيب أول",mil:27328,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0580075007"},
+  {id:27,name:"تركي محمد السهلي",rank:"عريف",mil:60676,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0556022276"},
+  {id:28,name:"شعلان مرزوق الظفيري",rank:"جندي أول",mil:64200,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0555837663"},
+  {id:29,name:"فيصل حسن الشمري",rank:"جندي أول",mil:70599,spec:"مفتش سلامة",center:"إشراف 304",group:"الأولى",phone:"0503094737"},
+  {id:30,name:"عبدالوهاب أمير الغزال",rank:"رقيب",mil:42979,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0566224490"},
+  {id:31,name:"فيصل مطلق المطيري",rank:"عريف",mil:64116,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0508507989"},
+  {id:32,name:"أحمد عايد الشمري",rank:"جندي أول",mil:60513,spec:"إطفاء وإنقاذ",center:"إشراف 304",group:"الثالثة",phone:"0508043448"},
+  {id:33,name:"وليد عوض الرشيدي",rank:"جندي أول",mil:72979,spec:"مفتش سلامة",center:"إشراف 304",group:"الأولى",phone:"0507944303"},
+  {id:34,name:"حسين بودويحس",rank:"رقيب أول",mil:34439,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0544740005"},
+  {id:35,name:"صالح مسعد العازمي",rank:"عريف",mil:61580,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0551501624"},
+  {id:36,name:"عبدالله حسن مطيلق",rank:"جندي أول",mil:63247,spec:"مفتش سلامة",center:"إشراف 309",group:"الأولى",phone:"0551190136"},
+  {id:37,name:"مشعل لائق البلوي",rank:"جندي أول",mil:64255,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0532154134"},
+  {id:38,name:"عبدالمجيد ناصر السلوم",rank:"وكيل رقيب",mil:46895,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0509350902"},
+  {id:39,name:"نصار عامر الظفيري",rank:"عريف",mil:63252,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0532552422"},
+  {id:40,name:"عبدالله مطلق المطيري",rank:"جندي أول",mil:64264,spec:"إطفاء وإنقاذ",center:"إشراف 309",group:"الثالثة",phone:"0537461055"},
+  {id:41,name:"محمد حجي الموسى",rank:"جندي أول",mil:71342,spec:"مفتش سلامة",center:"إشراف 309",group:"الأولى",phone:"0577313130"},
+  {id:42,name:"يوسف أحمد الشايب",rank:"وكيل رقيب",mil:41447,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0503921366"},
+  {id:43,name:"مشاري راشد آل خليفة",rank:"عريف",mil:59440,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0548294635"},
+  {id:44,name:"أحمد علي السعران",rank:"جندي أول",mil:66621,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0551458098"},
+  {id:45,name:"أحمد علي التمار",rank:"جندي أول",mil:73011,spec:"مفتش سلامة",center:"إشراف 302",group:"الأولى",phone:"0544280584"},
+  {id:46,name:"محمد لافي العازمي",rank:"عريف",mil:56531,spec:"مفتش سلامة",center:"إشراف 302",group:"الأولى",phone:"0550652717"},
+  {id:47,name:"حمد ذيب الهاجري",rank:"عريف",mil:61749,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0535769376"},
+  {id:48,name:"منصور محمد الهاجري",rank:"عريف",mil:58145,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0550821422"},
+  {id:49,name:"عبدالله حمد الهاجري",rank:"عريف",mil:58748,spec:"إطفاء وإنقاذ",center:"إشراف 302",group:"الثالثة",phone:"0505222810"},
+  {id:50,name:"ناصر حسن البري",rank:"وكيل رقيب",mil:55873,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0500614614"},
+  {id:51,name:"عبدالله حسين السرور",rank:"وكيل رقيب",mil:55508,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0557040971"},
+  {id:52,name:"أحمد محمد البن أحمد",rank:"عريف",mil:58415,spec:"مفتش سلامة",center:"إشراف 305",group:"الأولى",phone:"0576858782"},
+  {id:53,name:"عبدالله خميس الهاجري",rank:"عريف",mil:61654,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0509975589"},
+  {id:54,name:"أحمد دغيمان المطيري",rank:"رقيب",mil:40937,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0560697392"},
+  {id:55,name:"طلال منصور العتيبي",rank:"وكيل رقيب",mil:55126,spec:"مفتش سلامة",center:"إشراف 305",group:"الأولى",phone:"0537776869"},
+  {id:56,name:"مبارك هجاج الظفيري",rank:"وكيل رقيب",mil:43664,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0500708032"},
+  {id:57,name:"عبدالعزيز خلف الجميلي",rank:"جندي أول",mil:68729,spec:"إطفاء وإنقاذ",center:"إشراف 305",group:"الثالثة",phone:"0533495925"},
+  {id:58,name:"سلمان أحمد جمعان",rank:"رقيب أول",mil:34376,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0503825701"},
+  {id:59,name:"نايف محمد آل تحيفة",rank:"وكيل رقيب",mil:45545,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0551155130"},
+  {id:60,name:"خالد رحيل الرويلي",rank:"عريف",mil:61414,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0532189546"},
+  {id:61,name:"خالد حماد الشمري",rank:"جندي",mil:74066,spec:"مفتش سلامة",center:"إشراف 303",group:"الأولى",phone:"0504448494"},
+  {id:62,name:"عبدالله محمد الشهري",rank:"وكيل رقيب",mil:45156,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0507920837"},
+  {id:63,name:"عبدالله صالح المري",rank:"عريف",mil:58730,spec:"مفتش سلامة",center:"إشراف 303",group:"الأولى",phone:"0553628128"},
+  {id:64,name:"سعود عيد الحربي",rank:"عريف",mil:60488,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0536650811"},
+  {id:65,name:"فهد عبيد الشمري",rank:"جندي أول",mil:69004,spec:"إطفاء وإنقاذ",center:"إشراف 303",group:"الثالثة",phone:"0533095484"},
+  {id:66,name:"مشيعل سعيد الحارثي",rank:"وكيل رقيب",mil:43692,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0507002276"},
+  {id:67,name:"مشعل مطني الظفيري",rank:"عريف",mil:64233,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0559592777"},
+  {id:68,name:"حمد عطالله الجميلي",rank:"جندي أول",mil:72987,spec:"مفتش سلامة",center:"إشراف 313",group:"الأولى",phone:"0550770564"},
+  {id:69,name:"زايد فارس آل وقيان",rank:"جندي أول",mil:73052,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0541850271"},
+  {id:70,name:"مرتضى محمد عيسى آل أمان",rank:"وكيل رقيب",mil:72348,spec:"مفتش سلامة",center:"إشراف 313",group:"الأولى",phone:"0544993171"},
+  {id:71,name:"سلطان محمد البذالي",rank:"عريف",mil:60443,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0555952970"},
+  {id:72,name:"عبدالرحمن عوض القحطاني",rank:"عريف",mil:59282,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0536639300"},
+  {id:73,name:"صادق عيسى الحنابي",rank:"جندي أول",mil:71429,spec:"إطفاء وإنقاذ",center:"إشراف 313",group:"الثالثة",phone:"0503667105"},
+];
+
+const SPEC_COLORS = {
+  "إطفاء وإنقاذ":"#ef4444","مفتش سلامة":"#3b82f6","قائد ومشغل آليات":"#f59e0b",
+  "إطفاء وإنقاذ دراجة":"#f97316","مفتش سلامة دراجة":"#6366f1","تموين وخدمات":"#10b981",
+  "رئيس مركز":"#8b5cf6","مساعد رئيس مركز":"#ec4899"
+};
+const RANK_COLORS = ["#ef4444","#f97316","#f59e0b","#10b981","#3b82f6","#6366f1","#8b5cf6","#ec4899","#64748b"];
+const GROUP_META = {
+  "الأولى":{color:"#dc2626",icon:"1️⃣"},
+  "الثانية":{color:"#059669",icon:"2️⃣"},
+  "الثالثة":{color:"#1d4ed8",icon:"3️⃣"}
+};
+const CENTERS_META = [
+  {id:"303",        label:"303 — المركز الرئيسي", lat:21.345437, lng:39.976687, color:"#ef4444"},
+  {id:"إشراف 302",  label:"إشراف 302",            lat:21.343187, lng:39.973312, color:"#3b82f6"},
+  {id:"إشراف 303",  label:"إشراف 303",            lat:21.343438, lng:39.974688, color:"#8b5cf6"},
+  {id:"إشراف 304",  label:"إشراف 304",            lat:21.345437, lng:39.971063, color:"#f59e0b"},
+  {id:"إشراف 305",  label:"إشراف 305",            lat:21.343938, lng:39.974688, color:"#10b981"},
+  {id:"إشراف 309",  label:"إشراف 309",            lat:21.346937, lng:39.973188, color:"#f97316"},
+  {id:"إشراف 312",  label:"إشراف 312",            lat:21.345813, lng:39.975812, color:"#06b6d4"},
+  {id:"إشراف 313",  label:"إشراف 313",            lat:21.346187, lng:39.976813, color:"#ec4899"},
+];
+
+// ===== HELPERS =====
+const countBy = (arr,fn) => arr.reduce((a,x)=>{const k=fn(x);a[k]=(a[k]||0)+1;return a},{});
+const specColor = s => SPEC_COLORS[s]||"#64748b";
+const tagStyle = (bg,color) => `background:${bg}22;color:${color};font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600`;
+
+function centerData(id){
+  const m = personnel.filter(p=>p.center===id);
+  return {
+    total:m.length,
+    fire:m.filter(p=>p.spec.includes("إطفاء")).length,
+    safety:m.filter(p=>p.spec.includes("سلامة")).length,
+    vehicles:m.filter(p=>p.spec.includes("آليات")).length,
+    contact:m.filter(p=>p.phone&&p.phone.length>=9).length,
+    noContact:m.filter(p=>!p.phone||p.phone.length<9).length,
+    members:m
+  };
+}
+
+// ===== TAB NAVIGATION =====
+function showTab(id, btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ===== RENDER HOME =====
+function renderHome(){
+  const total = personnel.length;
+  const fire = personnel.filter(p=>p.spec.includes("إطفاء")).length;
+  const safety = personnel.filter(p=>p.spec.includes("سلامة")).length;
+  const vehicles = personnel.filter(p=>p.spec.includes("آليات")).length;
+
+  document.getElementById('kpi-fire').textContent = fire;
+  document.getElementById('kpi-fire-pct').textContent = Math.round(fire/total*100)+'% من الإجمالي';
+  document.getElementById('kpi-safety').textContent = safety;
+  document.getElementById('kpi-safety-pct').textContent = Math.round(safety/total*100)+'% من الإجمالي';
+  document.getElementById('kpi-vehicles').textContent = vehicles;
+  document.getElementById('kpi-vehicles-pct').textContent = Math.round(vehicles/total*100)+'% من الإجمالي';
+
+  // groups bars
+  const groups = [
+    {name:"الثالثة",count:personnel.filter(p=>p.group==="الثالثة").length,color:"#1d4ed8"},
+    {name:"الأولى",count:personnel.filter(p=>p.group==="الأولى").length,color:"#dc2626"},
+    {name:"الثانية",count:personnel.filter(p=>p.group==="الثانية").length,color:"#059669"},
+  ];
+  document.getElementById('groups-bars').innerHTML = groups.map(g=>`
+    <div style="margin-bottom:9px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:12px;color:#cbd5e1">المجموعة ${g.name}</span>
+        <span style="font-size:12px;font-weight:700;color:${g.color}">${g.count} فرد</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:${Math.round(g.count/total*100)}%;background:${g.color}"></div></div>
+    </div>`).join('');
+
+  // centers contact
+  document.getElementById('centers-contact').innerHTML = CENTERS_META.map(cm=>{
+    const d = centerData(cm.id);
+    return `<div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #1e293b">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#f1f5f9">${cm.id}</div>
+        <div style="font-size:10px;color:#64748b">${d.total} أفراد</div>
+      </div>
+      ${d.noContact>0
+        ? `<span class="pill" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b44">⚠️ ${d.noContact} بدون تواصل</span>`
+        : `<span class="pill" style="background:#10b98122;color:#10b981;border:1px solid #10b98144">✅ مكتمل</span>`
+      }
+    </div>`;
+  }).join('');
+}
+
+// ===== RENDER STATS =====
+function renderStats(){
+  const total = personnel.length;
+  const specs = Object.entries(countBy(personnel,p=>p.spec)).sort((a,b)=>b[1]-a[1]);
+  const ranks = Object.entries(countBy(personnel,p=>p.rank)).sort((a,b)=>b[1]-a[1]);
+
+  // Spec donut-style bars
+  document.getElementById('spec-bars').innerHTML = specs.map(([name,cnt])=>`
+    <div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <div style="width:9px;height:9px;border-radius:2px;background:${specColor(name)};flex-shrink:0"></div>
+      <span style="font-size:11px;color:#cbd5e1;flex:1">${name}</span>
+      <div style="flex:2;background:#0f172a;border-radius:4px;height:5px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:${Math.round(cnt/total*100)}%;background:${specColor(name)}"></div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:${specColor(name)};width:22px;text-align:left">${cnt}</span>
+    </div>`).join('');
+
+  // Rank bars
+  document.getElementById('rank-bars').innerHTML = ranks.map(([name,cnt],i)=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #0f172a">
+      <span style="font-size:11px;color:#cbd5e1;width:80px;flex-shrink:0;text-align:right">${name}</span>
+      <div style="flex:1;background:#0f172a;border-radius:4px;height:8px;overflow:hidden">
+        <div style="height:100%;border-radius:4px;width:${Math.round(cnt/ranks[0][1]*100)}%;background:${RANK_COLORS[i%9]}"></div>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:${RANK_COLORS[i%9]};width:20px;text-align:left">${cnt}</span>
+    </div>`).join('');
+
+  // Center chart (simple bars)
+  const canvas = document.getElementById('center-chart');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth * 2;
+  canvas.height = 200 * 2;
+  ctx.scale(2,2);
+  const W = canvas.offsetWidth/2, H = 100;
+  ctx.clearRect(0,0,W,200);
+  const barW = (W-20) / CENTERS_META.length;
+  CENTERS_META.forEach((cm,i)=>{
+    const d = centerData(cm.id);
+    const maxH = H;
+    const fH = Math.round(d.fire/d.total*maxH);
+    const sH = Math.round(d.safety/d.total*maxH);
+    const vH = d.vehicles>0?Math.round(d.vehicles/d.total*maxH):0;
+    const x = 10+i*barW+barW*0.1;
+    const bW = barW*0.8;
+    let y = H+30;
+    // fire
+    ctx.fillStyle='#ef4444';ctx.fillRect(x,y-fH,bW,fH);y-=fH;
+    // safety
+    ctx.fillStyle='#3b82f6';ctx.fillRect(x,y-sH,bW,sH);y-=sH;
+    // vehicles
+    if(vH){ctx.fillStyle='#f59e0b';ctx.fillRect(x,y-vH,bW,vH);}
+    // label
+    ctx.fillStyle='#64748b';ctx.font='7px sans-serif';ctx.textAlign='center';
+    ctx.fillText(cm.id.replace('إشراف ',''),x+bW/2,H+45);
+  });
+}
+
+// ===== RENDER GROUPS =====
+let selGroup = "الأولى", selSpec = "الكل";
+
+function renderGroups(){
+  const groups = ["الأولى","الثانية","الثالثة"];
+  document.getElementById('group-cards').innerHTML = groups.map(g=>{
+    const m = GROUP_META[g];
+    const cnt = personnel.filter(p=>p.group===g).length;
+    const active = selGroup===g;
+    return `<div class="group-card" onclick="selectGroup('${g}')"
+      style="${active?`background:${m.color}22;border-color:${m.color}`:''}">
+      <div style="font-size:20px">${m.icon}</div>
+      <div style="font-size:12px;font-weight:800;color:${active?m.color:'#94a3b8'};margin-top:4px">م. ${g}</div>
+      <div style="font-size:18px;font-weight:900;color:${active?m.color:'#f1f5f9'}">${cnt}</div>
+      <div style="font-size:9px;color:#64748b">فرد</div>
+    </div>`;
+  }).join('');
+
+  const members = personnel.filter(p=>p.group===selGroup);
+  const specs = ["الكل",...new Set(members.map(p=>p.spec))];
+  document.getElementById('spec-filter-title').textContent = `تخصصات المجموعة ${selGroup}`;
+  document.getElementById('spec-filter-btns').innerHTML = specs.map(s=>{
+    const cnt = s==="الكل" ? members.length : members.filter(p=>p.spec===s).length;
+    const c = s==="الكل"?"#64748b":specColor(s);
+    const active = selSpec===s;
+    return `<button class="spec-btn ${active?'active':''}" onclick="selectSpec('${s}')"
+      style="${active?`background:${c}33;color:${c};border-color:${c}`:''}">
+      ${s!=="الكل"?`<div class="spec-dot" style="background:${c}"></div>`:''}
+      ${s} <span style="font-weight:900;color:${c}">${cnt}</span>
+    </button>`;
+  }).join('');
+
+  // spec stat mini cards
+  const specStats = specs.filter(s=>s!=="الكل").map(s=>({
+    name:s,count:members.filter(p=>p.spec===s).length,color:specColor(s)
+  }));
+  document.getElementById('spec-stat-grid').innerHTML = specStats.map(s=>`
+    <div style="background:${s.color}11;border:1px solid ${s.color}33;border-radius:12px;padding:10px">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="spec-dot" style="background:${s.color}"></div>
+        <span style="font-size:10px;color:#94a3b8;flex:1;line-height:1.3">${s.name}</span>
+      </div>
+      <div style="font-size:22px;font-weight:900;color:${s.color}">${s.count}</div>
+      <div class="prog-wrap" style="margin-top:6px"><div class="prog-bar" style="width:${Math.round(s.count/members.length*100)}%;background:${s.color}"></div></div>
+    </div>`).join('');
+
+  const filtered = selSpec==="الكل" ? members : members.filter(p=>p.spec===selSpec);
+  document.getElementById('group-count').textContent = `${filtered.length} فرد${selSpec!=="الكل"?' — '+selSpec:''}`;
+  document.getElementById('group-list').innerHTML = filtered.map(p=>{
+    const sc = specColor(p.spec);
+    return `<div class="person-card" style="border-right:3px solid ${sc}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">${p.id}. ${p.name}</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="${tagStyle(sc,sc)}">${p.spec}</span>
+        <span class="tag" style="${tagStyle('#38bdf8','#38bdf8')}">${p.rank}</span>
+        <span class="tag" style="${tagStyle('#8b5cf6','#8b5cf6')}">${p.center}</span>
+      </div>
+      <div class="person-phone">📞 ${p.phone} <span style="color:#334155;font-size:10px">#${p.mil}</span></div>
+    </div>`;
+  }).join('');
+}
+
+function selectGroup(g){selGroup=g;selSpec="الكل";renderGroups();}
+function selectSpec(s){selSpec=s;renderGroups();}
+
+// ===== RENDER PERSONNEL =====
+let centerFilter = "الكل";
+
+function renderPersonnel(){
+  const search = document.getElementById('search-input').value;
+  const filtered = personnel.filter(p=>
+    (search===''||p.name.includes(search)||p.rank.includes(search)||p.spec.includes(search))&&
+    (centerFilter==="الكل"||p.center===centerFilter)
+  );
+  document.getElementById('personnel-count').textContent = filtered.length+' فرد';
+  document.getElementById('personnel-list').innerHTML = filtered.map(p=>{
+    const sc = specColor(p.spec);
+    return `<div class="person-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="person-name">${p.id}. ${p.name}</div>
+        <span style="font-size:10px;color:#10b981">✅</span>
+      </div>
+      <div class="person-meta">
+        <span class="tag" style="${tagStyle('#38bdf8','#38bdf8')}">${p.rank}</span>
+        <span class="tag" style="${tagStyle(sc,sc)}">${p.spec}</span>
+        <span class="tag" style="${tagStyle('#8b5cf6','#8b5cf6')}">${p.center}</span>
+        <span class="tag" style="${tagStyle('#475569','#94a3b8')}">م. ${p.group}</span>
+      </div>
+      <div class="person-phone">📞 ${p.phone} <span style="color:#334155;font-size:10px">#${p.mil}</span></div>
+    </div>`;
+  }).join('') || '<div style="text-align:center;color:#64748b;padding:30px 0">لا توجد نتائج</div>';
+}
+
+function setCenterFilter(c, btn){
+  centerFilter = c;
+  document.querySelectorAll('#center-filters .filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPersonnel();
+}
+
+function buildCenterFilters(){
+  const centers = ["الكل",...new Set(personnel.map(p=>p.center))];
+  document.getElementById('center-filters').innerHTML = centers.map((c,i)=>
+    `<button class="filter-btn${i===0?' active':''}" onclick="setCenterFilter('${c}',this)">${c}</button>`
+  ).join('');
+}
+
+// ===== RENDER CENTERS =====
+function renderCenters(){
+  const total = personnel.length;
+  const fire = personnel.filter(p=>p.spec.includes("إطفاء")).length;
+  const safety = personnel.filter(p=>p.spec.includes("سلامة")).length;
+  const vehicles = personnel.filter(p=>p.spec.includes("آليات")).length;
+
+  document.getElementById('centers-summary').innerHTML = [
+    {label:"الإجمالي",val:total,color:"#38bdf8"},
+    {label:"إطفاء",val:fire,color:"#ef4444"},
+    {label:"سلامة",val:safety,color:"#3b82f6"},
+    {label:"آليات",val:vehicles,color:"#f59e0b"},
+  ].map(s=>`
+    <div class="summary-box" style="background:${s.color}11;border:1px solid ${s.color}33">
+      <div class="summary-num" style="color:${s.color}">${s.val}</div>
+      <div class="summary-lbl">${s.label}</div>
+    </div>`).join('');
+
+  document.getElementById('centers-list').innerHTML = CENTERS_META.map(cm=>{
+    const d = centerData(cm.id);
+    const specBreakdown = Object.entries(countBy(d.members,p=>p.spec)).sort((a,b)=>b[1]-a[1]);
+    return `
+    <div class="card" style="border-right:3px solid ${cm.color}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:14px;font-weight:800;color:#f1f5f9">${cm.id}</span>
+        <span style="font-size:11px;color:#64748b">${d.total} فرد</span>
+      </div>
+      <div class="center-stats">
+        ${[{l:"إجمالي",v:d.total,c:"#38bdf8"},{l:"إطفاء",v:d.fire,c:"#ef4444"},{l:"سلامة",v:d.safety,c:"#3b82f6"},{l:"آليات",v:d.vehicles,c:"#f59e0b"}]
+          .map(s=>`<div class="stat-box"><div class="stat-num" style="color:${s.c}">${s.v}</div><div class="stat-lbl">${s.l}</div></div>`).join('')}
+      </div>
+      <div style="margin-bottom:10px">
+        ${specBreakdown.map(([spec,cnt])=>`
+          <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #0f172a">
+            <div class="spec-dot" style="background:${specColor(spec)}"></div>
+            <span style="font-size:11px;color:#cbd5e1;flex:1">${spec}</span>
+            <span style="font-size:11px;font-weight:700;color:${specColor(spec)}">${cnt}</span>
+            <div style="width:40px;background:#0f172a;border-radius:3px;height:4px;overflow:hidden">
+              <div style="height:100%;width:${Math.round(cnt/d.total*100)}%;background:${specColor(spec)};border-radius:3px"></div>
+            </div>
+          </div>`).join('')}
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+        <span style="font-size:11px;color:#94a3b8">التواصل</span>
+        <span style="font-size:11px;font-weight:700;color:${d.noContact>0?'#f59e0b':'#10b981'}">${d.contact}/${d.total} (${Math.round(d.contact/d.total*100)}%)</span>
+      </div>
+      <div class="prog-wrap"><div class="prog-bar" style="width:${Math.round(d.contact/d.total*100)}%;background:${d.noContact>0?'#f59e0b':'#10b981'}"></div></div>
+      ${d.noContact>0?`<div style="font-size:10px;color:#f59e0b;margin-top:4px">⚠️ ${d.noContact} بدون رقم تواصل</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+// ===== RENDER MAP =====
+let mapSelected = null;
+
+function renderMap(){
+  const svg = document.getElementById('map-svg');
+  const W=340, H=300;
+  const minLat=21.340, maxLat=21.350, minLng=39.969, maxLng=39.979;
+  const toX = lng => ((lng-minLng)/(maxLng-minLng))*W;
+  const toY = lat => H-((lat-minLat)/(maxLat-minLat))*H;
+
+  let svgHtml = `
+    <rect width="${W}" height="${H}" fill="#1a2744"/>
+    <!-- blocks -->
+    <rect x="10" y="10" width="80" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="100" y="15" width="65" height="50" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="175" y="10" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="255" y="12" width="75" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="10" y="85" width="75" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="95" y="80" width="65" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="170" y="85" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="250" y="82" width="80" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="10" y="160" width="75" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="95" y="155" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="175" y="160" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="255" y="158" width="75" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="10" y="235" width="80" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="100" y="238" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="180" y="235" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <rect x="260" y="238" width="70" height="55" rx="4" fill="#243058" opacity=".7"/>
+    <!-- streets horizontal -->
+    <line x1="0" y1="${toY(21.3428)}" x2="${W}" y2="${toY(21.3428)}" stroke="#f59e0b" stroke-width="5" opacity=".45"/>
+    <line x1="0" y1="${toY(21.3440)}" x2="${W}" y2="${toY(21.3440)}" stroke="#f59e0b" stroke-width="4" opacity=".45"/>
+    <line x1="0" y1="${toY(21.3452)}" x2="${W}" y2="${toY(21.3452)}" stroke="#f59e0b" stroke-width="5" opacity=".45"/>
+    <line x1="0" y1="${toY(21.3464)}" x2="${W}" y2="${toY(21.3464)}" stroke="#f59e0b" stroke-width="4" opacity=".45"/>
+    <!-- streets vertical -->
+    <line x1="${toX(39.9710)}" y1="0" x2="${toX(39.9710)}" y2="${H}" stroke="#f59e0b" stroke-width="4" opacity=".45"/>
+    <line x1="${toX(39.9725)}" y1="0" x2="${toX(39.9725)}" y2="${H}" stroke="#f59e0b" stroke-width="5" opacity=".45"/>
+    <line x1="${toX(39.9740)}" y1="0" x2="${toX(39.9740)}" y2="${H}" stroke="#f59e0b" stroke-width="4" opacity=".45"/>
+    <line x1="${toX(39.9755)}" y1="0" x2="${toX(39.9755)}" y2="${H}" stroke="#f59e0b" stroke-width="5" opacity=".45"/>
+    <!-- compass -->
+    <circle cx="320" cy="18" r="12" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="320" y="22" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="sans-serif">ش</text>
+    <!-- scale -->
+    <line x1="10" y1="290" x2="55" y2="290" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="10" y1="287" x2="10" y2="293" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="55" y1="287" x2="55" y2="293" stroke="#64748b" stroke-width="1.5"/>
+    <text x="32" y="285" text-anchor="middle" font-size="6" fill="#64748b" font-family="sans-serif">~500م</text>
+  `;
+
+  CENTERS_META.forEach(cm=>{
+    const x = toX(cm.lng), y = toY(cm.lat);
+    const sel = mapSelected===cm.id;
+    const shortId = cm.id.replace("إشراف ","");
+    svgHtml += `
+      <g onclick="selectMap('${cm.id}')" style="cursor:pointer">
+        ${sel?`<circle cx="${x}" cy="${y}" r="22" fill="${cm.color}" opacity=".2"/>`:''}
+        <circle cx="${x}" cy="${y}" r="${sel?16:13}" fill="${cm.color}" opacity=".9"/>
+        <circle cx="${x}" cy="${y}" r="${sel?12:9}" fill="#0f172a"/>
+        <text x="${x}" y="${y+4}" text-anchor="middle" font-size="${sel?8:7}" fill="${cm.color}" font-weight="bold" font-family="monospace">${shortId}</text>
+        <text x="${x}" y="${y-18}" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">${centerData(cm.id).total} فرد</text>
+      </g>`;
+  });
+  svgHtml += '</svg>';
+  svg.innerHTML = svgHtml.replace('<svg','').replace('</svg>','');
+
+  // Legend
+  document.getElementById('map-legend').innerHTML = CENTERS_META.map(cm=>`
+    <button onclick="selectMap('${cm.id}')" style="${mapSelected===cm.id?`background:${cm.color}22;border-color:${cm.color};color:${cm.color};font-weight:700`:''}">
+      <div style="width:8px;height:8px;border-radius:50%;background:${cm.color};flex-shrink:0"></div>
+      ${cm.id}
+    </button>`).join('');
+
+  // Detail
+  if(mapSelected){
+    const cm = CENTERS_META.find(c=>c.id===mapSelected);
+    const d = centerData(cm.id);
+    document.getElementById('map-detail').innerHTML = `
+      <div class="card" style="border:1px solid ${cm.color}66;margin-top:4px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <span style="font-size:15px;font-weight:800;color:${cm.color}">${cm.label}</span>
+          <span style="font-size:11px;color:#64748b">${d.total} أفراد</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px">
+          <div style="background:#0f172a;border-radius:10px;padding:8px;text-align:center">
+            <div style="font-size:18px;font-weight:900;color:#ef4444">${d.fire}</div>
+            <div style="font-size:10px;color:#64748b">إطفاء وإنقاذ</div>
+          </div>
+          <div style="background:#0f172a;border-radius:10px;padding:8px;text-align:center">
+            <div style="font-size:18px;font-weight:900;color:#3b82f6">${d.safety}</div>
+            <div style="font-size:10px;color:#64748b">مفتش سلامة</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:7px;font-weight:600">👥 أفراد الإشراف</div>
+        ${d.members.map(p=>`
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #0f172a">
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#f1f5f9">${p.name}</div>
+              <div style="font-size:10px;color:#64748b">${p.rank} — ${p.spec}</div>
+            </div>
+            <div style="font-size:11px;color:#38bdf8">📞 ${p.phone}</div>
+          </div>`).join('')}
+      </div>`;
+  } else {
+    document.getElementById('map-detail').innerHTML = `
+      <div class="card" style="text-align:center;padding:24px 14px">
+        <div style="font-size:32px;margin-bottom:8px">🗺️</div>
+        <div style="font-size:13px;color:#64748b">اضغط على أي نقطة في الخريطة<br>أو اختر إشرافاً من القائمة أعلاه</div>
+      </div>`;
+  }
+}
+
+function selectMap(id){
+  mapSelected = mapSelected===id ? null : id;
+  renderMap();
+}
+
+// ===== INIT =====
+renderHome();
+renderStats();
+renderGroups();
+buildCenterFilters();
+renderPersonnel();
+renderCenters();
+renderMap();
+</script>
+
+
+</body></html>
